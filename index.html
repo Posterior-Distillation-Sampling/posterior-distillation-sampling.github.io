@@ -111,7 +111,6 @@
       transition-duration: 0.4s;
       cursor: pointer;
     }
-
     .in2n-btn {
       display: block;
       text-align: center;
@@ -358,7 +357,7 @@
 								  <span class="icon">
 										<i class="ai ai-arxiv"></i>
 									</span>
-									<span id="arxiv-link">arXiv (Coming Soon)</span>
+									<span id="arxiv-link">arXiv</span>
 								</btn>
 							</span>
 
@@ -367,7 +366,7 @@
 									<span class="icon">
 										<i class="fab fa-github"></i>
 									</span>
-									<span id="code-link">Code (Coming Soon)</span>
+									<span id="code-link">Code</span>
 								</btn>
 							</span>
 							<!--<span class="link-block">-->
@@ -689,26 +688,45 @@ Bibtex part
 <!--</section>-->
 
 <script>
-	document.getElementById("bibtex-link").onclick = function (e) {
-			bibtxt = document.getelementById("bibcontent");
-			navigator.clipboard.writeText(bibtxt.textContent);
+	<!--document.getElementById("bibtex-link").onclick = function (e) {-->
+	<!--    bibtxt = document.getelementById("bibcontent");-->
+	<!--    navigator.clipboard.writeText(bibtxt.textContent);-->
 
-			bibLink = e.srcElement;
-      bibLink.textContent = "✓ Copied";
-    };
-    document.getElementById("bibtex-link").onmouseover = function (e) {
-      bibLink = e.srcElement;
-      bibLink.textContent = "Copy";
-    };
-    document.getElementById("bibtex-link").onmouseout = function (e) {
-      bibLink = e.fromElement;
-      bibLink.textContent = "Bibtex";
-    };
-
-	<!--document.getElementById("arxiv-link").onclick = function (e) {-->
 	<!--    bibLink = e.srcElement;-->
-	<!--    bibLink.textContent = "-->
-	<!--  }-->
+  <!--    bibLink.textContent = "✓ Copied";-->
+  <!--  };-->
+	<!--document.getElementById("bibtex-link").onmouseover = function (e) {-->
+	<!--  bibLink = e.srcElement;-->
+	<!--  bibLink.textContent = "Copy";-->
+	<!--};-->
+	<!--document.getElementById("bibtex-link").onmouseout = function (e) {-->
+	<!--  bibLink = e.fromElement;-->
+	<!--  bibLink.textContent = "Bibtex";-->
+	<!--};-->
+
+	document.getElementById("arxiv-link").onmouseover = function (e) {
+			arxivLink = e.srcElement;
+			arxivLink.textContent = "Coming Soon";
+			console.log("mouseover");
+	};
+
+	document.getElementById("arxiv-link").onmouseout = function (e) {
+			arxivLink = e.fromElement;
+			arxivLink.textContent = "arXiv";
+	};
+
+	document.getElementById("code-link").onmouseover = function (e) {
+			codeLink = e.srcElement;
+			codeLink.textContent = "Coming Soon";
+			console.log("mouseover");
+	};
+
+	document.getElementById("code-link").onmouseout = function (e) {
+			codeLink = e.fromElement;
+			codeLink.textContent = "Code";
+	};
+
+
 </script>
 <footer class="footer">
   <div class="container">
