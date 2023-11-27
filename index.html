@@ -111,7 +111,25 @@
       transition-duration: 0.4s;
       cursor: pointer;
     }
-    .in2n-btn {
+
+    .pds-btn_active {
+      display: block;
+      text-align: center;
+      padding: 12px 20px 12px 20px;
+      margin-right: auto;
+      margin-left: auto;
+      background-color: #851676;
+      width: fit-content;
+      border-radius: 7.5%;
+      color: #ffffff;
+      font-size: large;
+      font-weight: bold;
+      border: none;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .baseline-btn {
       display: block;
       text-align: center;
       padding: 12px 20px 12px 20px;
@@ -128,7 +146,7 @@
       cursor: pointer;
     }
 
-    .in2n-btn:hover {
+    .baseline-btn:hover {
       display: block;
       text-align: center;
       padding: 12px 20px 12px 20px;
@@ -145,58 +163,7 @@
       cursor: pointer;
     }
 
-    .inv2n-btn {
-      display: block;
-      text-align: center;
-      padding: 12px 20px 12px 20px;
-      margin-right: auto;
-      margin-left: auto;
-      background-color: #ffffff;
-      width: fit-content;
-      border-radius: 7.5%;
-      color: rgb(112, 148, 221);
-      font-size: large;
-      font-weight: bold;
-      border: none;
-      transition-duration: 0.4s;
-      cursor: pointer;
-    }
-
-    .inv2n-btn:hover {
-      display: block;
-      text-align: center;
-      padding: 12px 20px 12px 20px;
-      margin-right: auto;
-      margin-left: auto;
-      background-color: rgb(112, 148, 221);
-      width: fit-content;
-      border-radius: 7.5%;
-      color: #ffffff;
-      font-size: large;
-      font-weight: bold;
-      border: none;
-      transition-duration: 0.4s;
-      cursor: pointer;
-    }
-
-    .dds-btn {
-      display: block;
-      text-align: center;
-      padding: 12px 20px 12px 20px;
-      margin-right: auto;
-      margin-left: auto;
-      background-color: #ffffff;
-      width: fit-content;
-      border-radius: 7.5%;
-      color: rgb(112, 148, 221);
-      font-size: large;
-      font-weight: bold;
-      border: none;
-      transition-duration: 0.4s;
-      cursor: pointer;
-    }
-
-    .dds-btn:hover {
+    .baseline-btn_active {
       display: block;
       text-align: center;
       padding: 12px 20px 12px 20px;
@@ -310,7 +277,7 @@
       cursor: pointer;
     }
 
-    .toggle-btn-active {
+    .toggle-btn_active {
       display: block;
       text-align: center;
       padding: 12px 20px 12px 20px;
@@ -530,35 +497,63 @@
         (function(i){
       
           var button_in2n = document.createElement("button");
-          button_in2n.className='in2n-btn';
+          button_in2n.className='baseline-btn';
           button_in2n.innerHTML = '<p>IN2N<br>(Haque <i>et al.</i>)</p>';
       
           var button_inv2n = document.createElement("button");
-          button_inv2n.className='inv2n-btn';
+          button_inv2n.className='baseline-btn';
           button_inv2n.innerHTML = '<p>Inv2N<br>&nbsp;</p>';
       
           var button_dds = document.createElement("button");
-          button_dds.className='dds-btn';
+          button_dds.className='baseline-btn';
           button_dds.innerHTML = '<p>DDS<br>(Hertz <i>et al.</i>)</p>';
 
           var button_pds = document.createElement("button");
-          button_pds.className='pds-btn';
+          button_pds.className='pds-btn_active';
           button_pds.innerHTML = '<p><b>PDS<br>(Ours)</b></p>';
       
           button_pds.addEventListener('click', function(event) {
             document.getElementById('edited_' + i).innerHTML = '<img id="pds" src="./static/data/' + i + '/pds.gif" style="height:100%" alt="PDS image."/>';
+            var parent = document.querySelector('#button_col' + i);
+            var current = parent.querySelector('[class*=_active]');
+            if (current != null) {
+              // console.log(current);
+              current.className = current.className.replace("_active", "")
+            }
+            this.className += '_active'
           }, false);
       
           button_in2n.addEventListener('click', function(event) {
             document.getElementById('edited_' + i).innerHTML = '<img id="baseline_in2n" src="./static/data/' + i + '/in2n.gif" style="height:100%" alt="Baseline IN2N image."/>';
+            var parent = document.querySelector('#button_col' + i);
+            var current = parent.querySelector('[class*=_active]');
+            if (current != null) {
+              // console.log(current);
+              current.className = current.className.replace("_active", "")
+            }
+            this.className += '_active'
           }, false);
       
           button_inv2n.addEventListener('click', function(event) {
             document.getElementById('edited_' + i).innerHTML = '<img id="baseline_inv2n" src="./static/data/' + i + '/inv2n.gif" style="height:100%" alt="Baseline Inv2N image."/>';
+            var parent = document.querySelector('#button_col' + i);
+            var current = parent.querySelector('[class*=_active]');
+            if (current != null) {
+              // console.log(current);
+              current.className = current.className.replace("_active", "")
+            }
+            this.className += '_active'
           }, false);
       
           button_dds.addEventListener('click', function(event) {
             document.getElementById('edited_' + i).innerHTML = '<img id="baseline_dds" src="./static/data/' + i + '/dds.gif" style="height:100%" alt="Baseline DDS image."/>';
+            var parent = document.querySelector('#button_col' + i);
+            var current = parent.querySelector('[class*=_active]');
+            if (current != null) {
+              // console.log(current);
+              current.className = current.className.replace("_active", "")
+            }
+            this.className += '_active'
           }, false);
       
           
